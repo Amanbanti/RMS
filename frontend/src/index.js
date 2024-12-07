@@ -39,7 +39,7 @@ const router =createBrowserRouter(
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // store is redux provider
+  
   <React.StrictMode>
     <HelmetProvider>
        
