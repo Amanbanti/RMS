@@ -6,15 +6,12 @@ const Footer   = () => {
   return (
     <footer>
         <Container>
-              
-            <Row className="gx-0">
-              <Col
-                md={{ span: 9, offset: 3 }}
-                lg={{ span: 10, offset: 2 }}
-                className="text-center py-3 bg-dark text-white"
-              >
-                <p>&copy; 2024 Your Website. All rights reserved.</p>
-              </Col>
+            <Row>
+                <Col className='text-center py-3' >
+                    <p> Adama Rentals &copy; {currentYear}</p>
+
+                </Col>
+
             </Row>
         </Container>
       
