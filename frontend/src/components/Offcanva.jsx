@@ -1,38 +1,30 @@
 import { useState } from 'react';
 import { Offcanvas, Button, Nav, Collapse, Col } from 'react-bootstrap';
 import {
-  FaBars,
   FaChevronRight,
   FaChevronDown,
-  FaTh,
-  FaUserFriends,
-  FaHome,
+  FaTh, // Dashboard
+  FaUserFriends, // Leads
+  FaHome, // Projects
   FaClipboardList,
   FaCalendarAlt,
   FaFileInvoice,
   FaBuilding,
   FaHeadset,
+  FaUser,
+  FaCog,
+  FaChartLine,
+  FaComment,
   FaRegHandshake,
-  FaUserTie,
-  FaChartPie,
+  FaUserTie, // Individual
+  FaChartPie, // Reports
+  FaBars,
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Offcanva = () => {
   const [showSidebar, setShowSidebar] = useState(false);
-  const [openMenu, setOpenMenu] = useState({
-    dashboard: false,
-    tenant: false,
-    landlord: false,
-    properties: false,
-    unit: false,
-    leases: false,
-    inventory: false,
-    invoice: false,
-    report: false,
-    calendar: false,
-    support: false,
-  });
+  const [openMenu, setOpenMenu] = useState({});
 
   const toggleSidebar = () => setShowSidebar(!showSidebar);
 
@@ -305,6 +297,81 @@ const Offcanva = () => {
               <div className="d-flex align-items-center text-primary fs-6">
                 <FaHeadset className="me-2" />
                 Support Tickets
+                </div>
+            </Nav.Link>
+
+            
+            {/* Chat Section */}
+         <Nav.Link
+              as={Link}
+              to="chat"
+              className="d-flex justify-content-between align-items-center text-secondary mb-2"
+              onClick={() => toggleDropdown('chat')}
+            >
+              <div className="d-flex align-items-center text-primary fs-6">
+                <FaComment className="me-2" />
+                Chat
+                </div>
+            </Nav.Link>
+
+
+          
+          {/* My Profile Section */}
+         <Nav.Link
+              as={Link}
+              to="profile"
+              className="d-flex justify-content-between align-items-center text-secondary mb-2"
+              onClick={() => toggleDropdown('profile')}
+            >
+              <div className="d-flex align-items-center text-primary fs-6">
+                <FaUser className="me-2" />
+                My Profile
+                </div>
+            </Nav.Link>
+
+
+
+        {/* Manage Users Section */}
+        <Nav.Link
+              as={Link}
+              to="manageusers"
+              className="d-flex justify-content-between align-items-center text-secondary mb-2"
+              onClick={() => toggleDropdown('manageusers')}
+            >
+              <div className="d-flex align-items-center text-primary fs-6">
+                <FaUserFriends className="me-2" />
+                Manage Users 
+                </div>
+            </Nav.Link>
+
+
+
+           {/* Appilication Settings Section */}
+        <Nav.Link
+              as={Link}
+              to="setting"
+              className="d-flex justify-content-between align-items-center text-secondary mb-2"
+              onClick={() => toggleDropdown('setting')}
+            >
+              <div className="d-flex align-items-center text-primary fs-6">
+                <FaCog className="me-2" />
+                Appilication Settings
+                </div>
+            </Nav.Link>
+
+
+          
+          
+           {/* Appilication Logs Section */}
+        <Nav.Link
+              as={Link}
+              to="logs"
+              className="d-flex justify-content-between align-items-center text-secondary mb-2"
+              onClick={() => toggleDropdown('logs')}
+            >
+              <div className="d-flex align-items-center text-primary fs-6">
+                <FaChartLine className="me-2" />
+                Appilication Logs
                 </div>
             </Nav.Link>
           </Nav>

@@ -11,6 +11,10 @@ import {
   FaFileInvoice,
   FaBuilding,
   FaHeadset,
+  FaUser,
+  FaCog,
+  FaChartLine,
+  FaComment,
   FaRegHandshake,
   FaUserTie, // Individual
   FaChartPie, // Reports
@@ -310,6 +314,82 @@ const SlideBar = () => {
 
 
 
+
+            {/* Chat Section */}
+         <Nav.Link
+              as={Link}
+              to="chat"
+              className="d-flex justify-content-between align-items-center text-secondary mb-2"
+              onClick={() => toggleDropdown('chat')}
+            >
+              <div className="d-flex align-items-center fs-6">
+                <FaComment className="me-2" />
+                Chat
+                </div>
+            </Nav.Link>
+
+
+          
+          {/* My Profile Section */}
+         <Nav.Link
+              as={Link}
+              to="profile"
+              className="d-flex justify-content-between align-items-center text-secondary mb-2"
+              onClick={() => toggleDropdown('profile')}
+            >
+              <div className="d-flex align-items-center fs-6">
+                <FaUser className="me-2" />
+                My Profile
+                </div>
+            </Nav.Link>
+
+
+
+        {/* Manage Users Section */}
+        <Nav.Link
+              as={Link}
+              to="manageusers"
+              className="d-flex justify-content-between align-items-center text-secondary mb-2"
+              onClick={() => toggleDropdown('manageusers')}
+            >
+              <div className="d-flex align-items-center fs-6">
+                <FaUserFriends className="me-2" />
+                Manage Users 
+                </div>
+            </Nav.Link>
+
+
+
+           {/* Appilication Settings Section */}
+        <Nav.Link
+              as={Link}
+              to="setting"
+              className="d-flex justify-content-between align-items-center text-secondary mb-2"
+              onClick={() => toggleDropdown('setting')}
+            >
+              <div className="d-flex align-items-center fs-6">
+                <FaCog className="me-2" />
+                Appilication Settings
+                </div>
+            </Nav.Link>
+
+
+          
+          
+           {/* Appilication Logs Section */}
+        <Nav.Link
+              as={Link}
+              to="logs"
+              className="d-flex justify-content-between align-items-center text-secondary mb-2"
+              onClick={() => toggleDropdown('logs')}
+            >
+              <div className="d-flex align-items-center fs-6">
+                <FaChartLine className="me-2" />
+                Appilication Logs
+                </div>
+            </Nav.Link>
+
+          
 
           </Nav>
         </div>
