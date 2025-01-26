@@ -54,7 +54,7 @@ const LoginScreen = () => {
 
       {/* Google Sign-In Button */}
       <Button
-        variant="outline-danger"
+        variant="outline-primary"
         className="w-100 my-2 d-flex align-items-center justify-content-center"
         onClick={handleGoogleSignIn}
       >
@@ -67,6 +67,7 @@ const LoginScreen = () => {
         variant="outline-primary"
         className="w-100 my-2 d-flex align-items-center justify-content-center"
         onClick={handleFacebookSignIn}
+        style={{ backgroundColor: '#3b5998', color: 'white' }}
       >
         <FaFacebook className="me-2" />
         Sign in with Facebook

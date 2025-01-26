@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Nav} from 'react-bootstrap';
 import {
-  FaBars,
   FaChevronRight,
   FaChevronDown,
   FaTh, // Dashboard
@@ -24,7 +23,6 @@ const SlideBar = () => {
     const [showSidebar, setShowSidebar] = useState(false);
     const [openMenu, setOpenMenu] = useState({});
   
-    const toggleSidebar = () => setShowSidebar(!showSidebar);
     const toggleDropdown = (menu) =>
       setOpenMenu((prevState) => ({
         ...prevState,
