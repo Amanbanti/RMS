@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Offcanvas, Button, Nav, Collapse, Col } from 'react-bootstrap';
 import {
@@ -53,10 +54,12 @@ const Offcanva = () => {
           <Nav className="flex-column">
             {/* Dashboard Section */}
             <Nav.Link
-             as={Link}
-             to="dashboard"
+              as={Link}
+              to="dashboard"
               className="d-flex justify-content-between align-items-center text-white mb-3 py-2 px-3 rounded-3 transition-all hover-bg-dark"
-              onClick={() => toggleDropdown('dashboard')}
+              onClick={() => {
+                toggleSidebar();
+              }}
             >
               <div className="d-flex align-items-center text-primary fs-6">
                 <FaTh className="me-2" />
@@ -64,8 +67,8 @@ const Offcanva = () => {
               </div>
             </Nav.Link>
 
-             {/*  Tenants Section */}
-             <Nav.Link
+            {/* Tenants Section */}
+            <Nav.Link
               as={Link}
               to="#"
               className="d-flex justify-content-between align-items-center text-secondary mb-2"
@@ -79,17 +82,24 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.tenant}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/tenant/create" className="text-primary">
-                Register Tenants
+                <Nav.Link
+                  as={Link}
+                  to="/tenant/create"
+                  className="text-primary"
+                  onClick={toggleSidebar}
+                >
+                  Register Tenants
                 </Nav.Link>
-                <Nav.Link as={Link} to="/tenant/view" className="text-primary">
-                Veiw Tenants
+                <Nav.Link
+                  as={Link}
+                  to="/tenant/view"
+                  className="text-primary"
+                  onClick={toggleSidebar}
+                >
+                  View Tenants
                 </Nav.Link>
               </div>
             </Collapse>
-
-
-
 
             {/* Landlords Section */}
             <Nav.Link
@@ -102,20 +112,28 @@ const Offcanva = () => {
                 <FaUserTie className="me-2" />
                 Landlords
               </div>
-              {openMenu.landlord ? <FaChevronDown className="text-primary"/> : <FaChevronRight className="text-primary" />}
+              {openMenu.landlord ? <FaChevronDown className="text-primary" /> : <FaChevronRight className="text-primary" />}
             </Nav.Link>
             <Collapse in={openMenu.landlord}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/lead1" className="text-primary">
-                  Lead 1
+                <Nav.Link
+                  as={Link}
+                  to="/landloard/create"
+                  className="text-primary"
+                  onClick={toggleSidebar}
+                >
+                  Register Landlord
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lead2" className="text-primary">
-                  Lead 2
+                <Nav.Link
+                  as={Link}
+                  to="/landloard/view"
+                  className="text-primary"
+                  onClick={toggleSidebar}
+                >
+                  View Landlords
                 </Nav.Link>
               </div>
             </Collapse>
-
-
 
             {/* Properties Section */}
             <Nav.Link
@@ -132,18 +150,27 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.properties}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/project1" className="text-primary" >
+                <Nav.Link
+                  as={Link}
+                  to="/project1"
+                  className="text-primary"
+                  onClick={toggleSidebar}
+                >
                   Project 1
                 </Nav.Link>
-                <Nav.Link as={Link} to="/project2" className="text-primary" >
+                <Nav.Link
+                  as={Link}
+                  to="/project2"
+                  className="text-primary"
+                  onClick={toggleSidebar}
+                >
                   Project 2
                 </Nav.Link>
               </div>
             </Collapse>
 
-
-             {/* properties units Section */}
-         <Nav.Link
+              {/* properties units Section */}
+          <Nav.Link
               as={Link}
               to="#"
               className="d-flex justify-content-between align-items-center text-secondary mb-2"
@@ -157,10 +184,10 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.unit}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/lead1" className="text-primary" >
+                <Nav.Link as={Link} to="/lead1" className="text-primary"  onClick={toggleSidebar} >
                   Lead 1
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lead2" className="text-primary" >
+                <Nav.Link as={Link} to="/lead2" className="text-primary"  onClick={toggleSidebar}>
                   Lead 2
                 </Nav.Link>
               </div>
@@ -183,10 +210,10 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.leases}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/lead1" className="text-primary" >
+                <Nav.Link as={Link} to="/lead1" className="text-primary"  onClick={toggleSidebar} >
                   Lead 1
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lead2" className="text-primary" >
+                <Nav.Link as={Link} to="/lead2" className="text-primary"  onClick={toggleSidebar}>
                   Lead 2
                 </Nav.Link>
               </div>
@@ -210,10 +237,10 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.inventory}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/lead1" className="text-primary" >
+                <Nav.Link as={Link} to="/lead1" className="text-primary"  onClick={toggleSidebar} >
                   Lead 1
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lead2" className="text-primary" >
+                <Nav.Link as={Link} to="/lead2" className="text-primary"  onClick={toggleSidebar} >
                   Lead 2
                 </Nav.Link>
               </div>
@@ -231,7 +258,9 @@ const Offcanva = () => {
               as={Link}
               to="invoices"
               className="d-flex justify-content-between align-items-center text-secondary mb-2"
-              onClick={() => toggleDropdown('invoice')}
+              onClick={() => {
+                toggleSidebar();
+              }}
             >
               <div className="d-flex align-items-center text-primary fs-6">
                 <FaFileInvoice className="me-2" />
@@ -260,30 +289,17 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.report}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/lead1"className="text-primary" >
+                <Nav.Link as={Link} to="/lead1"className="text-primary"  onClick={toggleSidebar}>
                   Lead 1
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lead2" className="text-primary" >
+                <Nav.Link as={Link} to="/lead2" className="text-primary"  onClick={toggleSidebar}>
                   Lead 2
                 </Nav.Link>
               </div>
             </Collapse>
 
 
-          
-
-              {/* Calendar Events Section */}
-            <Nav.Link
-                  as={Link}
-                  to="calender"
-                  className="d-flex justify-content-between align-items-center text-secondary mb-2"
-                  onClick={() => toggleDropdown('calander')}
-                >
-                  <div className="d-flex align-items-center text-primary fs-6">
-                    <FaCalendarAlt className="me-2" />
-                        Calendar Events
-                      </div>
-                </Nav.Link>
+        
 
 
 
@@ -292,7 +308,9 @@ const Offcanva = () => {
               as={Link}
               to="support"
               className="d-flex justify-content-between align-items-center text-secondary mb-2"
-              onClick={() => toggleDropdown('support')}
+              onClick={() => {
+                toggleSidebar();
+              }}
             >
               <div className="d-flex align-items-center text-primary fs-6">
                 <FaHeadset className="me-2" />
@@ -306,7 +324,9 @@ const Offcanva = () => {
               as={Link}
               to="chat"
               className="d-flex justify-content-between align-items-center text-secondary mb-2"
-              onClick={() => toggleDropdown('chat')}
+              onClick={() => {
+                toggleSidebar();
+              }}
             >
               <div className="d-flex align-items-center text-primary fs-6">
                 <FaComment className="me-2" />
@@ -321,7 +341,9 @@ const Offcanva = () => {
               as={Link}
               to="profile"
               className="d-flex justify-content-between align-items-center text-secondary mb-2"
-              onClick={() => toggleDropdown('profile')}
+              onClick={() => {
+                toggleSidebar();
+              }}
             >
               <div className="d-flex align-items-center text-primary fs-6">
                 <FaUser className="me-2" />
@@ -336,7 +358,9 @@ const Offcanva = () => {
               as={Link}
               to="manageusers"
               className="d-flex justify-content-between align-items-center text-secondary mb-2"
-              onClick={() => toggleDropdown('manageusers')}
+              onClick={() => {
+                toggleSidebar();
+              }}
             >
               <div className="d-flex align-items-center text-primary fs-6">
                 <FaUserFriends className="me-2" />
@@ -351,7 +375,9 @@ const Offcanva = () => {
               as={Link}
               to="setting"
               className="d-flex justify-content-between align-items-center text-secondary mb-2"
-              onClick={() => toggleDropdown('setting')}
+              onClick={() => {
+                toggleSidebar();
+              }}
             >
               <div className="d-flex align-items-center text-primary fs-6">
                 <FaCog className="me-2" />
@@ -367,12 +393,29 @@ const Offcanva = () => {
               as={Link}
               to="logs"
               className="d-flex justify-content-between align-items-center text-secondary mb-2"
-              onClick={() => toggleDropdown('logs')}
+              onClick={() => {
+                toggleSidebar();
+              }}
             >
               <div className="d-flex align-items-center text-primary fs-6">
                 <FaChartLine className="me-2" />
                 Appilication Logs
                 </div>
+            </Nav.Link>
+
+            {/* Calendar Events Section */}
+            <Nav.Link
+              as={Link}
+              to="calendar"
+              className="d-flex justify-content-between align-items-center text-secondary mb-2"
+              onClick={() => {
+                toggleSidebar();
+              }}
+            >
+              <div className="d-flex align-items-center text-primary fs-6">
+                <FaCalendarAlt className="me-2" />
+                Calendar Events
+              </div>
             </Nav.Link>
           </Nav>
         </Offcanvas.Body>

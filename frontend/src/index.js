@@ -19,7 +19,9 @@ import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen';
 import Dashboard from "./screens/HomeScreens/Dashboard";
 import CreateTenant from "./screens/TenantScreens/CreateTenant"
-import ViewTenant from "./screens/TenantScreens/VeiwTenants"
+import ViewTenant from "./screens/TenantScreens/ViewTenants"
+import RegisterlandLord from './screens/LandLordScreens/LandLordRegistrationForm';
+import ViewLandlord from './screens/LandLordScreens/ViewLandlord';
 const router =createBrowserRouter( 
   createRoutesFromElements(
     <Route path="/" element={<App/>}>
@@ -27,7 +29,9 @@ const router =createBrowserRouter(
             <Route path="/" element={<HomeScreen />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/tenant/create" element={<CreateTenant />} />
-            <Route path="/tenant/veiw" element={<ViewTenant />} />
+            <Route path="/tenant/view" element={<ViewTenant />} />
+            <Route path="/landloard/create" element={<RegisterlandLord/>} />
+            <Route path="/landloard/view" element={<ViewLandlord />} />
         </Route>
          <Route  path="/login" element={<LoginScreen/>}/>
          <Route  path="/register" element={<RegisterScreen/>}/>
