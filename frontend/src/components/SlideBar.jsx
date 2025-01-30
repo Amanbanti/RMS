@@ -144,11 +144,11 @@ const SlideBar = () => {
             </Nav.Link>
             <Collapse in={openMenu.properties}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/project1" className="text-secondary">
-                  Project 1
+                <Nav.Link as={Link} to="/property/create" className="text-secondary">
+                Create Property
                 </Nav.Link>
-                <Nav.Link as={Link} to="/project2" className="text-secondary">
-                  Project 2
+                <Nav.Link as={Link} to="/property/view" className="text-secondary">
+                View Property
                 </Nav.Link>
               </div>
             </Collapse>
