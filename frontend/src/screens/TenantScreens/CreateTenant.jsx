@@ -32,7 +32,7 @@ const TenantRegistrationForm = () => {
   return (
     <Container className="py-4">
       <Row className="justify-content-center">
-        <Col lg={10}>
+        <Col lg={15}>
           <Card className="p-4 shadow-lg">
             <Card.Body>
               <h2 className="text-center mb-4">Register New Tenant</h2>
@@ -43,7 +43,7 @@ const TenantRegistrationForm = () => {
                 {/* Full Name and Email */}
                 <Row>
                   <Col md={6}>
-                    <Form.Group controlId="fullName">
+                    <Form.Group className="mb-3" controlId="fullName">
                       <Form.Label>Full Name</Form.Label>
                       <Form.Control
                         type="text"
@@ -71,7 +71,7 @@ const TenantRegistrationForm = () => {
                 {/* Phone Number and Identity No */}
                 <Row className="mt-3">
                   <Col md={6}>
-                    <Form.Group controlId="phoneNumber">
+                    <Form.Group className="mb-3" controlId="phoneNumber">
                       <Form.Label>Phone Number</Form.Label>
                       <Form.Control
                         type="text"
@@ -83,7 +83,7 @@ const TenantRegistrationForm = () => {
                     </Form.Group>
                   </Col>
                   <Col md={6}>
-                    <Form.Group controlId="identityNo">
+                    <Form.Group  controlId="identityNo">
                       <Form.Label>Identity No / Passport</Form.Label>
                       <Form.Control
                         type="text"
@@ -103,7 +103,7 @@ const TenantRegistrationForm = () => {
                 {/* Identification Document and Address */}
                 <Row className="mt-3">
                   <Col md={6}>
-                    <Form.Group controlId="identificationDocument">
+                    <Form.Group className="mb-3" controlId="identificationDocument">
                       <Form.Label>Identification Document</Form.Label>
                       <Form.Control
                         type="file"
@@ -138,7 +138,7 @@ const TenantRegistrationForm = () => {
                 {/* Occupation Status and Place */}
                 <Row className="mt-3">
                   <Col md={6}>
-                  <Form.Group controlId="occupationStatus">
+                  <Form.Group className="mb-3" controlId="occupationStatus">
                     <Form.Label>Occupation Status</Form.Label>
                     <Form.Select
                         name="occupationStatus"
@@ -181,7 +181,7 @@ const TenantRegistrationForm = () => {
                  {/* Emergency Contact */}
                  <Row className="mt-3">
                   <Col md={6}>
-                    <Form.Group controlId="emergencyContactName">
+                    <Form.Group className="mb-3" controlId="emergencyContactName">
                       <Form.Label>Emergency Contact Name</Form.Label>
                       <Form.Control
                         type="text"
@@ -205,7 +205,7 @@ const TenantRegistrationForm = () => {
                     </Form.Group>
                   </Col>
                 </Row>
-                
+
                 {/* Submit Button */}
                 <div className="text-center mt-4">
                   <Button variant="primary" type="submit" className="w-50">
