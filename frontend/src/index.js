@@ -18,12 +18,14 @@ import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen';
 import Dashboard from "./screens/HomeScreens/Dashboard";
+import CreateTenant from "./screens/TenantScreens/CreateTenant"
 const router =createBrowserRouter( 
   createRoutesFromElements(
     <Route path="/" element={<App/>}>
           <Route index={true} path="/" element={<HomeScreen/>}/>
             <Route path="/" element={<HomeScreen />}>
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/tenant/create" element={<CreateTenant />} />
         </Route>
          <Route  path="/login" element={<LoginScreen/>}/>
          <Route  path="/register" element={<RegisterScreen/>}/>

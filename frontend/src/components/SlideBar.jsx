@@ -91,11 +91,11 @@ const SlideBar = () => {
             </Nav.Link>
             <Collapse in={openMenu.tenant}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/team1" className="text-secondary">
-                  Team 1
+                <Nav.Link as={Link} to="/tenant/create" className="text-secondary">
+                  Register Tenants
                 </Nav.Link>
-                <Nav.Link as={Link} to="/team2" className="text-secondary">
-                  Team 2
+                <Nav.Link as={Link} to="/tenant/veiw" className="text-secondary">
+                  Veiw Tenants
                 </Nav.Link>
               </div>
             </Collapse>

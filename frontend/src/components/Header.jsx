@@ -15,7 +15,7 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
         <Container>
 
-          <Navbar.Brand as={Link} to="/">
+          <Navbar.Brand as={Link} to="/dashboard">
             <FaHome /> Adama Rentals
           </Navbar.Brand>
 
