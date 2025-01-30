@@ -249,7 +249,86 @@ const CreatePropertyForm = () => {
         {step === 2 && (
           <>
             <h4 className="mb-4">Location</h4>
-           
+            <Container className="mt-5">
+            
+              <h5 className="mb-4">Search location</h5>
+      
+              <Form.Group className="mb-4" controlId="searchLocation">
+                <Form.Control
+                 type="text" 
+                 placeholder="Type to search for location" 
+                 required
+                 name="searchLocation"
+                 value={formData.searchLocation}
+                onChange={handleChange}
+                 />
+              </Form.Group>
+
+              <h5 className="mb-3">Address</h5>
+
+              {/* Longitude and Latitude */}
+              <Form.Group className="mb-3" controlId="longitude">
+                <Row>
+                  <Col>
+                    <Form.Control 
+                    type="text" 
+                    placeholder="Longitude" 
+                    required
+                    name="longitude"
+                    value={formData.longitude}
+                    onChange={handleChange}
+                    />
+                  </Col>
+                  <Col>
+                    <Form.Control 
+                    type="text" 
+                    placeholder="Latitude" 
+                    required
+                    name="latitude"
+                    value={formData.latitude}
+                    onChange={handleChange}
+                    />
+                  </Col>
+                </Row>
+              </Form.Group>
+
+              {/* City, State, and Post Code */}
+              <Form.Group className="mb-4" controlId="city">
+                <Row>
+                  <Col>
+                    <Form.Control 
+                    type="text" 
+                    placeholder="City" 
+                    required
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                    />
+                  </Col>
+                  <Col>
+                    <Form.Control 
+                    type="text" 
+                    placeholder="State"
+                    required
+                    name="state"
+                    value={formData.state}
+                    onChange={handleChange}
+                     />
+                  </Col>
+                  <Col>
+                    <Form.Control 
+                    type="text" 
+                    placeholder="Post Code" 
+                    required
+                    name="postCode"
+                    value={formData.postCode}
+                    onChange={handleChange}
+                    />
+                  </Col>
+                </Row>
+              </Form.Group>
+
+    </Container>
 
             <Button variant="secondary" type="button" onClick={handlePrevious}>
               Previous
