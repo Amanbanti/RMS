@@ -152,19 +152,19 @@ const Offcanva = () => {
               <div className="ms-4">
                 <Nav.Link
                   as={Link}
-                  to="/project1"
+                  to="/property/create"
                   className="text-primary"
                   onClick={toggleSidebar}
                 >
-                  Project 1
+                    Create Property
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
-                  to="/project2"
+                  to="/property/veiw"
                   className="text-primary"
                   onClick={toggleSidebar}
                 >
-                  Project 2
+                    View Property
                 </Nav.Link>
               </div>
             </Collapse>
