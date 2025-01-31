@@ -21,7 +21,29 @@ const CreatePropertyForm = () => {
     city:"",
     state:"",
     postCode:"",
+    propertyNotes: "",
+    propertyAge: "",
+    rooms: "",
+    bedrooms: "",
+    bathrooms: "",
+    features: [],
+    images: null,
   });
+
+
+  const featuresList = [
+    "Air Conditioner",
+    "Car Parking",
+    "Laundry room",
+    "Heating",
+    "Balcony",
+    "Gym",
+    "Internet",
+    "Garden",
+    "Alarm",
+    "Swimming Pool",
+    "Pets Allow",
+  ];
 
   // Handle input changes
   const handleChange = (event) => {
@@ -30,6 +52,23 @@ const CreatePropertyForm = () => {
       ...formData,
       [name]: value,
     });
+  };
+
+  const handleChange3 = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    if (type === "checkbox") {
+      setFormData((prev) => ({
+        ...prev,
+        features: checked
+          ? [...prev.features, value]
+          : prev.features.filter((feature) => feature !== value),
+      }));
+    } else if (type === "file") {
+      setFormData({ ...formData, images: e.target.files });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   // Check if the form is valid
@@ -341,7 +380,120 @@ const CreatePropertyForm = () => {
 
         {step === 3 && (
           <>
-            <h5>Property Images</h5>
+            <h5>Features & Amenities</h5>
+            <Container className="mt-4">
+     
+      <Form>
+        {/* Property Notes */}
+        <Form.Group controlId="propertyNotes" className="mb-3">
+          <Form.Label>Property Notes:</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            name="propertyNotes"
+            value={formData.propertyNotes}
+            onChange={handleChange3}
+          />
+        </Form.Group>
+
+        {/* Dropdowns */}
+        <Row className="mb-3">
+          <Form.Group as={Col} controlId="propertyAge">
+            <Form.Label>Property Age (optional)</Form.Label>
+            <Form.Select
+              name="propertyAge"
+              value={formData.propertyAge}
+              onChange={handleChange3}
+            >
+              <option>Select one</option>
+              <option value="0-5 years">0-5 years</option>
+              <option value="6-10 years">6-10 years</option>
+              <option value="10+ years">10+ years</option>
+            </Form.Select>
+          </Form.Group>
+
+          <Form.Group as={Col} controlId="rooms">
+            <Form.Label>Rooms (optional)</Form.Label>
+            <Form.Select
+              name="rooms"
+              value={formData.rooms}
+              onChange={handleChange3}
+            >
+              <option>Select one</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3+">3+</option>
+            </Form.Select>
+          </Form.Group>
+
+          <Form.Group as={Col} controlId="bedrooms">
+            <Form.Label>Bedrooms (optional)</Form.Label>
+            <Form.Select
+              name="bedrooms"
+              value={formData.bedrooms}
+              onChange={handleChange3}
+            >
+              <option>Select one</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3+">3+</option>
+            </Form.Select>
+          </Form.Group>
+
+          <Form.Group as={Col} controlId="bathrooms">
+            <Form.Label>Bathrooms (optional)</Form.Label>
+            <Form.Select
+              name="bathrooms"
+              value={formData.bathrooms}
+              onChange={handleChange3}
+            >
+              <option>Select one</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3+">3+</option>
+            </Form.Select>
+          </Form.Group>
+        </Row>
+
+        {/* Features Checkboxes */}
+        <Form.Group className="mb-3">
+          <Form.Label>Features:</Form.Label>
+          <Row>
+            {featuresList.map((feature, idx) => (
+              <Col xs={6} md={4} key={idx}>
+                <Form.Check
+                  type="checkbox"
+                  label={feature}
+                  value={feature}
+                  onChange={handleChange3}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Form.Group>
+
+        {/* File Upload */}
+        <Form.Group controlId="images" className="mb-3">
+          <Form.Label>Property Images</Form.Label>
+          <p className="text-muted">
+            <small>
+              <ul>
+                <li>Max file size allowed is 5MB</li>
+                <li>Upload only images of type jpg, gif, or png</li>
+              </ul>
+            </small>
+          </p>
+          <Form.Control
+            type="file"
+            name="images"
+            multiple
+            onChange={handleChange3}
+          />
+        </Form.Group>
+
+        
+      </Form>
+    </Container>
 
             <Button variant="secondary" type="button" onClick={handlePrevious}>
               Previous
