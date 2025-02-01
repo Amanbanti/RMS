@@ -49,7 +49,7 @@ const AddPropertyUnits = () => {
                   <Form.Label>Rent *</Form.Label>
                         <InputGroup>
                             <Form.Control type="number" name="rent" value={formData.rent} onChange={handleChange} required />
-                            <InputGroup.Text>£</InputGroup.Text>
+                            <InputGroup.Text>Birr</InputGroup.Text>
                         </InputGroup>
                   </Form.Group>
                 </Col>
@@ -59,7 +59,7 @@ const AddPropertyUnits = () => {
                <Form.Label>Deposit</Form.Label>
                 <InputGroup>
                     <Form.Control type="number" name="deposit" value={formData.deposit} onChange={handleChange} />
-                    <InputGroup.Text>£</InputGroup.Text>
+                    <InputGroup.Text>Birr</InputGroup.Text>
                 </InputGroup>
               </Form.Group>
 
