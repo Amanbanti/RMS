@@ -169,10 +169,10 @@ const SlideBar = () => {
             </Nav.Link>
             <Collapse in={openMenu.unit}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/create/property-unit" className="text-secondary">
+                <Nav.Link as={Link} to="/property-unit/create" className="text-secondary">
                   Create Property Unit
                 </Nav.Link>
-                <Nav.Link as={Link} to="/view/property-unit" className="text-secondary">
+                <Nav.Link as={Link} to="/property-unit/view" className="text-secondary">
                   View Property Units
                 </Nav.Link>
               </div>
@@ -195,11 +195,14 @@ const SlideBar = () => {
             </Nav.Link>
             <Collapse in={openMenu.leases}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/lead1" className="text-secondary">
-                  Lead 1
+                <Nav.Link as={Link} to="/lease/create" className="text-secondary">
+                  Create Lease
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lead2" className="text-secondary">
-                  Lead 2
+                <Nav.Link as={Link} to="/lease/show" className="text-secondary">
+                  Show Leases
+                </Nav.Link>
+                <Nav.Link as={Link} to="/lease/terminate" className="text-secondary">
+                  Terminated Leases
                 </Nav.Link>
               </div>
             </Collapse>

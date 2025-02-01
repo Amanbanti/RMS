@@ -184,10 +184,10 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.unit}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/create/property-unit" className="text-primary"  onClick={toggleSidebar} >
+                <Nav.Link as={Link} to="/property-unit/create" className="text-primary"  onClick={toggleSidebar} >
                   Create Property Unit
                 </Nav.Link>
-                <Nav.Link as={Link} to="/view/property-unit" className="text-primary"  onClick={toggleSidebar}>
+                <Nav.Link as={Link} to="/property-unit/view" className="text-primary"  onClick={toggleSidebar}>
                  View Property Units
                 </Nav.Link>
               </div>
@@ -210,11 +210,14 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.leases}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/lead1" className="text-primary"  onClick={toggleSidebar} >
-                  Lead 1
+                <Nav.Link as={Link} to="/create/lease" className="text-primary"  onClick={toggleSidebar} >
+                Create Lease
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lead2" className="text-primary"  onClick={toggleSidebar}>
-                  Lead 2
+                <Nav.Link as={Link} to="/show/lease" className="text-primary"  onClick={toggleSidebar}>
+                  Show Leases
+                </Nav.Link>
+                <Nav.Link as={Link} to="/terminate/lease" className="text-primary"  onClick={toggleSidebar}>
+                  Terminated Leases
                 </Nav.Link>
               </div>
             </Collapse>
