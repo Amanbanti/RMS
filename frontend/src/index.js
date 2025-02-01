@@ -28,6 +28,7 @@ import CreatePropertyUnit from './screens/PropertyUnits/CreatePropertyUnit';
 import ViewPropertyUnit from './screens/PropertyUnits/ViewPropertyUnits';
 import CreateLease from './screens/Leases/CreateLease'
 import ViewLease from './screens/Leases/ShowLeases'
+import TerminatedLeases from './screens/Leases/TerminatedLeases'
 const router =createBrowserRouter( 
   createRoutesFromElements(
     <Route path="/" element={<App/>}>
@@ -44,6 +45,7 @@ const router =createBrowserRouter(
             <Route path="/property-unit/view" element={<ViewPropertyUnit/>} />
             <Route path="/lease/create" element={<CreateLease/>} />
             <Route path="/lease/show" element={<ViewLease/>} />
+            <Route path="/lease/terminate" element={<TerminatedLeases/>} />
             
         </Route>
          <Route  path="/login" element={<LoginScreen/>}/>

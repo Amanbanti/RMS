@@ -210,13 +210,13 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.leases}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/create/lease" className="text-primary"  onClick={toggleSidebar} >
+                <Nav.Link as={Link} to="/lease/create" className="text-primary"  onClick={toggleSidebar} >
                 Create Lease
                 </Nav.Link>
-                <Nav.Link as={Link} to="/show/lease" className="text-primary"  onClick={toggleSidebar}>
+                <Nav.Link as={Link} to="/lease/show" className="text-primary"  onClick={toggleSidebar}>
                   Show Leases
                 </Nav.Link>
-                <Nav.Link as={Link} to="/terminate/lease" className="text-primary"  onClick={toggleSidebar}>
+                <Nav.Link as={Link} to="/lease/terminate" className="text-primary"  onClick={toggleSidebar}>
                   Terminated Leases
                 </Nav.Link>
               </div>
