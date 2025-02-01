@@ -184,11 +184,11 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.unit}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/lead1" className="text-primary"  onClick={toggleSidebar} >
-                  Lead 1
+                <Nav.Link as={Link} to="/create/property-unit" className="text-primary"  onClick={toggleSidebar} >
+                  Create Property Unit
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lead2" className="text-primary"  onClick={toggleSidebar}>
-                  Lead 2
+                <Nav.Link as={Link} to="/view/property-unit" className="text-primary"  onClick={toggleSidebar}>
+                 View Property Units
                 </Nav.Link>
               </div>
             </Collapse>

@@ -24,6 +24,7 @@ import RegisterlandLord from './screens/LandLordScreens/LandLordRegistrationForm
 import ViewLandlord from './screens/LandLordScreens/ViewLandlord';
 import CreateProperty from './screens/Properties/CreateProperty'
 import ViewProperty from './screens/Properties/ViewProperty'
+import CreatePropertyUnit from './screens/PropertyUnits/CreatePropertyUnit';
 const router =createBrowserRouter( 
   createRoutesFromElements(
     <Route path="/" element={<App/>}>
@@ -36,6 +37,7 @@ const router =createBrowserRouter(
             <Route path="/landloard/view" element={<ViewLandlord />} />
             <Route path="/property/create" element={<CreateProperty />} />
             <Route path="/property/view" element={<ViewProperty />} />
+            <Route path="/create/property-unit" element={<CreatePropertyUnit/>} />
         </Route>
          <Route  path="/login" element={<LoginScreen/>}/>
          <Route  path="/register" element={<RegisterScreen/>}/>
