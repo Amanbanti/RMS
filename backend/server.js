@@ -2,15 +2,15 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import { connectDb, sequelize } from './config/db.js'; 
-// import userRoute from './routes/userRoutes.js';
+import userRoute from './routes/userRoutes.js';
 import path from 'path';
 
-// Get the current directory of the module
-const __dirname = path.resolve();
 
-// Load environment variables from the .env file
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+dotenv.config();
 
+
+// Now, log the environment variable to check if it's loaded
+console.log('JWT_SECRET:', process.env.JWT_SECRET);
 
 const app = express();
 const PORT = 5000;
@@ -39,7 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));// It ensures that the request accessed in a structured format.
 app.use(cookieParser());
 
-// app.use('/api/users', userRoute);
+app.use('/api/users', userRoute);
 
 app.get('/', (req, res) => {
   res.send('The server is running...');

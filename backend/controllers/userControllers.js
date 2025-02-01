@@ -1,5 +1,5 @@
 
-import User from '../model/userModel.js';
+import User from '../models/userModel.js';
 import { generateToken } from "../utils/generateToken.js";
 import asyncHandler from '../middleware/asyncHandler.js'
 
