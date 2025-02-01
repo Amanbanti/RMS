@@ -160,7 +160,7 @@ const Offcanva = () => {
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
-                  to="/property/veiw"
+                  to="/property/view"
                   className="text-primary"
                   onClick={toggleSidebar}
                 >
