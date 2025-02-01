@@ -38,11 +38,15 @@ const NewLeaseForm = () => {
     setFormData({ ...formData, leaseDocuments: e.target.files });
   };
 
+  const handleSubmit = () =>{
+        console.log(formData)
+  }
+
   return (
     <div className="container mt-4">
       <h3>New Lease</h3>
       <Card className="p-4 shadow-lg">
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Col md={8}>
             <h5>Create Lease</h5>
@@ -193,11 +197,13 @@ const NewLeaseForm = () => {
         </Form.Group>
 
         <Button variant="primary" className="mt-3" type="submit">Finalize Lease</Button>
+
       </Form>
 
       </Card>
     </div>
   );
+ 
 };
 
 export default NewLeaseForm;
