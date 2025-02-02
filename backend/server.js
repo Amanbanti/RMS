@@ -1,16 +1,11 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
-import { connectDb, sequelize } from './config/db.js'; 
-import userRoute from './routes/userRoutes.js';
-import path from 'path';
+import { connectDb, sequelize } from './config/db.js';
+import userRoute from './routes/userRoutes.js'; 
 
 
 dotenv.config();
-
-
-// Now, log the environment variable to check if it's loaded
-console.log('JWT_SECRET:', process.env.JWT_SECRET);
 
 const app = express();
 const PORT = 5000;
