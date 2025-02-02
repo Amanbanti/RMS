@@ -32,12 +32,12 @@ const User = sequelize.define(
   }
 );
 
-// Add a method to compare passwords
+// Add a method to compare passwords(for login)
 User.prototype.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
-// Hash password before saving to the database
+// Hash password before saving to the database(for regestration)
 User.beforeCreate(async (user) => {
   if (user.password) {
     const salt = await bcrypt.genSalt(10);
