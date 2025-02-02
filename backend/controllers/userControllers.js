@@ -59,8 +59,7 @@ export const registerUser = asyncHandler (async (req, res) =>{
             isAdmin: user.isAdmin
            })
         }else{
-            res.status(400);
-            throw new Error('Invalid User Data!')
+            return res.status(400).json({ message: "Invalid User Data!" });
            }
     }
 
