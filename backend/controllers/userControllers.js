@@ -42,10 +42,9 @@ export const registerUser = asyncHandler (async (req, res) =>{
         },
       });
 
-    if( userExist){
-        res.status(400);
-        throw new Error('User Already Exist!')
-    }else{
+      if (userExist) {
+        return res.status(400).json({ message: "User Already Exists!" });
+      }else{
         const user = await User.create({
             name : name,
             email: email,

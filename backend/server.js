@@ -41,6 +41,12 @@ app.use(cookieParser());
 
 app.use('/api/users', userRoute);
 
+app.use((err, req, res, next) => {
+    const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+    res.status(statusCode).json({ message: err.message });
+  });
+  
+
 app.get('/', (req, res) => {
   res.send('The server is running...');
 });

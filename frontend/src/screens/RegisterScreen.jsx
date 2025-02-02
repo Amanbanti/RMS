@@ -1,6 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import FormContainer from '../components/FormContainer';
 import { FaGoogle, FaFacebook } from 'react-icons/fa';
 
@@ -9,13 +12,40 @@ const RegisterScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match');
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const { data } = await axios.post('/api/users', {
+        name,
+        email,
+        password
+      });
+
+      toast.success('Registration successful! Redirecting...');
+      setTimeout(() => navigate('/login'), 2000); // Redirect after 2s
+
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Registration failed',);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <FormContainer>
       <h1>Sign Up</h1>
 
-      {/* Registration Form */}
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="my-2" controlId="name">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -23,7 +53,8 @@ const RegisterScreen = () => {
             placeholder="Enter name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-          ></Form.Control>
+            required
+          />
         </Form.Group>
 
         <Form.Group className="my-2" controlId="email">
@@ -33,7 +64,8 @@ const RegisterScreen = () => {
             placeholder="Enter email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
+            required
+          />
         </Form.Group>
 
         <Form.Group className="my-2" controlId="password">
@@ -43,7 +75,8 @@ const RegisterScreen = () => {
             placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
+            required
+          />
         </Form.Group>
 
         <Form.Group className="my-2" controlId="confirmPassword">
@@ -53,20 +86,19 @@ const RegisterScreen = () => {
             placeholder="Confirm password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-          ></Form.Control>
+            required
+          />
         </Form.Group>
 
-        <Button type="submit" variant="primary" className="w-100 my-3">
-          Register
+        <Button type="submit" variant="primary" className="w-100 my-3" disabled={loading}>
+          {loading ? 'Registering...' : 'Register'}
         </Button>
       </Form>
 
-      {/* Divider */}
       <div className="divider d-flex align-items-center my-4">
         <p className="text-center fw-bold mx-3 mb-0">OR</p>
       </div>
 
-      {/* Social Media Registration */}
       <Button
         variant="outline-primary"
         className="w-100 my-2 d-flex align-items-center justify-content-center"
@@ -82,11 +114,9 @@ const RegisterScreen = () => {
         <FaFacebook className="me-2" /> Register with Facebook
       </Button>
 
-      {/* Redirect to Login */}
       <Row className="py-3">
         <Col>
-          Already have an account?{' '}
-          <Link to="/login">Login</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </Col>
       </Row>
     </FormContainer>
