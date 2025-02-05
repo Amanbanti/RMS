@@ -13,6 +13,10 @@ const Header = () => {
 
   const navigate = useNavigate();
 
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  const isAdmin = userInfo && userInfo.isAdmin; // Check if the user is an admin
+
+
   const logoutHandler = async () => {
     try {
       await axios.post('/api/users/logout', {}, { withCredentials: true });
@@ -44,9 +48,9 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
         <Container>
 
-          <Navbar.Brand as={Link} to="/admin/dashboard">
-            <FaHome /> Adama Rentals
-          </Navbar.Brand>
+        <Navbar.Brand as={Link} to={isAdmin ? "/admin/dashboard" : "/dashboard"}>
+        <FaHome /> Adama Rentals
+      </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
