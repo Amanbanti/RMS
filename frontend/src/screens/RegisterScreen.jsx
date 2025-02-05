@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FormContainer from '../components/FormContainer';
 import { FaGoogle, FaFacebook } from 'react-icons/fa';
+import Loader from '../components/Loader';
 
 const RegisterScreen = () => {
   const [name, setName] = useState('');
@@ -89,7 +90,7 @@ const RegisterScreen = () => {
             required
           />
         </Form.Group>
-
+        {loading && <Loader />}
         <Button type="submit" variant="primary" className="w-100 my-3" disabled={loading}>
           {loading ? 'Registering...' : 'Register'}
         </Button>
