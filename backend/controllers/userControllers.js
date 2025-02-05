@@ -24,8 +24,8 @@ export const authUser = asyncHandler(async (req, res) => {
       isAdmin: user.isAdmin,
     });
   } else {
-    res.status(401);
-    throw new Error("Invalid email or password!");
+    return res.status(401).json({ message: "Invalid email or password!" });
+   
   }
 });
 
@@ -163,3 +163,18 @@ export const updateUser = asyncHandler(async (req, res) => {
     throw new Error("User not found!");
   }
 });
+
+
+
+export const userInfo = asyncHandler(async (req, res) => {
+
+  res.json({
+    id: req.user._id,
+    name: req.user.name,
+    email: req.user.email,
+    isAdmin: req.user.isAdmin, // This determines if the user is an admin
+  });
+});
+
+
+
