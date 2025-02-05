@@ -14,7 +14,7 @@ const LoginScreen = () => {
 
   const navigate = useNavigate();
 
-  
+
   const handleGoogleSignIn = () => {
     console.log('Google Sign-In clicked');
     // Add Google authentication logic here
@@ -38,7 +38,7 @@ const LoginScreen = () => {
       });
 
       toast.success('Login successful!');
-      setTimeout(() => navigate('/dashboard'), 500); // Redirect after 0.5s
+      setTimeout(() => navigate('/admin/dashboard'), 500); // Redirect after 0.5s
 
     } catch (err) {
       toast.error(err.response?.data?.message || 'Login failed',);
