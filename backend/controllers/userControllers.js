@@ -13,21 +13,20 @@ export const authUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ where: { email } });
 
   if (user && (await user.matchPassword(password))) {
-    // Generate token and send it in the response as a cookie
-    generateToken(res, user.id);
+    generateToken(res, user);
 
     // Send user details (excluding password)
     res.status(200).json({
       id: user.id,
       name: user.name,
-      email: user.email,
+    // email: user.email,
       isAdmin: user.isAdmin,
     });
   } else {
     return res.status(401).json({ message: "Invalid email or password!" });
-   
   }
 });
+
 
 
 
@@ -51,7 +50,7 @@ export const registerUser = asyncHandler (async (req, res) =>{
             password: password,
         })
         if(user){
-        generateToken ( res,user._id)
+        generateToken ( res,user)
            res.status(201).json({
             _id:user._id,
             name: user.name,
