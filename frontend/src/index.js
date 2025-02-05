@@ -29,6 +29,8 @@ import ViewPropertyUnit from './screens/PropertyUnits/ViewPropertyUnits';
 import CreateLease from './screens/Leases/CreateLease'
 import ViewLease from './screens/Leases/ShowLeases'
 import TerminatedLeases from './screens/Leases/TerminatedLeases'
+import AdminRoute from './components/AdminRoutes';
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -38,19 +40,22 @@ const router = createBrowserRouter(
       <Route path="register" element={<RegisterScreen />} />
 
       {/* Admin Routes */}
+      
       <Route path="admin" element={<HomeScreen />}>
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="tenant/create" element={<CreateTenant />} />
-        <Route path="tenant/view" element={<ViewTenant />} />
-        <Route path="landlord/create" element={<RegisterlandLord />} />
-        <Route path="landlord/view" element={<ViewLandlord />} />
-        <Route path="property/create" element={<CreateProperty />} />
-        <Route path="property/view" element={<ViewProperty />} />
-        <Route path="property-unit/create" element={<CreatePropertyUnit />} />
-        <Route path="property-unit/view" element={<ViewPropertyUnit />} />
-        <Route path="lease/create" element={<CreateLease />} />
-        <Route path="lease/show" element={<ViewLease />} />
-        <Route path="lease/terminate" element={<TerminatedLeases />} />
+        <Route path="" element={<AdminRoute/>}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="tenant/create" element={<CreateTenant />} />
+          <Route path="tenant/view" element={<ViewTenant />} />
+          <Route path="landlord/create" element={<RegisterlandLord />} />
+          <Route path="landlord/view" element={<ViewLandlord />} />
+          <Route path="property/create" element={<CreateProperty />} />
+          <Route path="property/view" element={<ViewProperty />} />
+          <Route path="property-unit/create" element={<CreatePropertyUnit />} />
+          <Route path="property-unit/view" element={<ViewPropertyUnit />} />
+          <Route path="lease/create" element={<CreateLease />} />
+          <Route path="lease/show" element={<ViewLease />} />
+          <Route path="lease/terminate" element={<TerminatedLeases />} />
+        </Route>
       </Route>
     </Route>
   )
