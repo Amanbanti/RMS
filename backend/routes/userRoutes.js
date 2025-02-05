@@ -3,6 +3,7 @@ import {
     authUser,
     registerUser,
     logoutUser ,
+    userInfo,
     getUserById,
     getUsers,
     deleteUser,
@@ -10,7 +11,7 @@ import {
     
     } from '../controllers/userControllers.js'
 
-// import { protect, admin } from "../middleware/authMiddleware.js";
+import { protect, admin } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -19,7 +20,8 @@ const router = express.Router();
 // router.get('/:id',protect,admin, getUserById);
 router.post('/',registerUser);
 router.post('/logout',logoutUser);
-router.post('/login', authUser);
+router.post('/login', authUser); userInfo
+router.get('/profile',protect, userInfo);
 // router.delete('/:id',protect,admin,  deleteUser);
 // router.put('/:id',protect,admin,  updateUser);
 
