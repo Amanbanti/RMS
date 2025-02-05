@@ -13,10 +13,15 @@ const Header = () => {
 
   const navigate = useNavigate();
 
-
   const logoutHandler = async () => {
     try {
       await axios.post('/api/users/logout', {}, { withCredentials: true });
+  
+      // Clear localStorage
+      localStorage.removeItem('userInfo');
+  
+      // Clear JWT cookie (forcing the browser to expire it)
+      document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   
       toast.success('Logout successful!');
       setTimeout(() => navigate('/login'), 500); // Redirect after 0.5s
@@ -25,6 +30,7 @@ const Header = () => {
       toast.error(err.response?.data?.message || 'Logout failed');
     }
   };
+  
 
 
   return (
