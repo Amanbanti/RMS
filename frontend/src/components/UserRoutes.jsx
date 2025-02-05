@@ -1,27 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Outlet, Navigate } from 'react-router-dom';
-import axios from 'axios';
+import React from "react";
+import { Outlet, Navigate } from "react-router-dom";
 
 const PrivateRoute = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const user = JSON.parse(localStorage.getItem("user")); // Get user from local storage
+  const hasToken = document.cookie.includes("jwt"); // Check if JWT cookie exists
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        await axios.get('/api/users/profile', { withCredentials: true });
-        setIsAuthenticated(true);
-      } catch (error) {
-        setIsAuthenticated(false);
-      }
-    };
-
-    checkAuth();
-  }, []);
-
-  // Show nothing while checking authentication status
-  if (isAuthenticated === null) return <p>Loading...</p>;
-
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
+  return user && hasToken ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
 export default PrivateRoute;
