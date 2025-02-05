@@ -48,7 +48,7 @@ const PropertyList = () => {
       </div>
       <Nav.Link
         as={Link}
-        to="/property/create">
+        to="/admin/property/create">
             <Button variant="success" className="mb-3">
                 + Add New Property
             </Button>

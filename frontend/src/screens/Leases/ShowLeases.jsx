@@ -39,7 +39,7 @@ const LeaseTable = () => {
       </div>
       <Nav.Link
         as={Link}
-        to="/lease/create">
+        to="/admin/lease/create">
             <Button variant="success" className="mb-3">
                 + Add New Lease
             </Button>

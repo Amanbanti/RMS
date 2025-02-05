@@ -49,7 +49,7 @@ const PropertyUnitList = () => {
       </div>
       <Nav.Link
         as={Link}
-        to="/create/property-unit">
+        to="/admin/property-unit/create">
             <Button variant="success" className="mb-3">
                 + Add New Room
             </Button>

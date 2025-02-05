@@ -26,7 +26,7 @@ const Header = () => {
     }
   };
 
-  
+
   return (
     <header  style={{
         position: 'sticky',
@@ -38,7 +38,7 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
         <Container>
 
-          <Navbar.Brand as={Link} to="/dashboard">
+          <Navbar.Brand as={Link} to="/admin/dashboard">
             <FaHome /> Adama Rentals
           </Navbar.Brand>
 

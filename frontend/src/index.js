@@ -29,40 +29,32 @@ import ViewPropertyUnit from './screens/PropertyUnits/ViewPropertyUnits';
 import CreateLease from './screens/Leases/CreateLease'
 import ViewLease from './screens/Leases/ShowLeases'
 import TerminatedLeases from './screens/Leases/TerminatedLeases'
-const router =createBrowserRouter( 
+const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App/>}>
-          <Route index={true} path="/" element={<HomeScreen/>}/>
-            <Route path="/" element={<HomeScreen />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/tenant/create" element={<CreateTenant />} />
-            <Route path="/tenant/view" element={<ViewTenant />} />
-            <Route path="/landloard/create" element={<RegisterlandLord/>} />
-            <Route path="/landloard/view" element={<ViewLandlord />} />
-            <Route path="/property/create" element={<CreateProperty />} />
-            <Route path="/property/view" element={<ViewProperty />} />
-            <Route path="/property-unit/create" element={<CreatePropertyUnit/>} />
-            <Route path="/property-unit/view" element={<ViewPropertyUnit/>} />
-            <Route path="/lease/create" element={<CreateLease/>} />
-            <Route path="/lease/show" element={<ViewLease/>} />
-            <Route path="/lease/terminate" element={<TerminatedLeases/>} />
-            
-        </Route>
-         <Route  path="/login" element={<LoginScreen/>}/>
-         <Route  path="/register" element={<RegisterScreen/>}/>
-         
+    <Route path="/" element={<App />}>
+      {/* Public Routes */}
+      <Route index element={<HomeScreen />} />
+      <Route path="login" element={<LoginScreen />} />
+      <Route path="register" element={<RegisterScreen />} />
 
-          {/* <Route path="" element={<PrivateRoute/>}>
-              <Route  path="/profile" element={<ProfileScreen/>}/>
-          </Route>
-
-          <Route path="" element={<AdminRoute/>}>
-              <Route  path="/admin/orderlist" element={<OrderListScreen/>}/>
-
-          </Route> */}
+      {/* Admin Routes */}
+      <Route path="admin" element={<HomeScreen />}>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="tenant/create" element={<CreateTenant />} />
+        <Route path="tenant/view" element={<ViewTenant />} />
+        <Route path="landlord/create" element={<RegisterlandLord />} />
+        <Route path="landlord/view" element={<ViewLandlord />} />
+        <Route path="property/create" element={<CreateProperty />} />
+        <Route path="property/view" element={<ViewProperty />} />
+        <Route path="property-unit/create" element={<CreatePropertyUnit />} />
+        <Route path="property-unit/view" element={<ViewPropertyUnit />} />
+        <Route path="lease/create" element={<CreateLease />} />
+        <Route path="lease/show" element={<ViewLease />} />
+        <Route path="lease/terminate" element={<TerminatedLeases />} />
+      </Route>
     </Route>
   )
-)
+);
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

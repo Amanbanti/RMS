@@ -62,7 +62,7 @@ const SlideBar = () => {
            {/* Dashboard Section */}
           <Nav.Link
             as={Link}
-            to="/dashboard"
+            to="/admin/dashboard"
             className="d-flex justify-content-between align-items-center text-secondary mb-2"
             onClick={() => toggleDropdown('dashboard')}
           >
@@ -91,10 +91,10 @@ const SlideBar = () => {
             </Nav.Link>
             <Collapse in={openMenu.tenant}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/tenant/create" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/tenant/create" className="text-secondary">
                   Register Tenants
                 </Nav.Link>
-                <Nav.Link as={Link} to="/tenant/view" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/tenant/view" className="text-secondary">
                   Veiw Tenants
                 </Nav.Link>
               </div>
@@ -118,10 +118,10 @@ const SlideBar = () => {
             </Nav.Link>
             <Collapse in={openMenu.landlord}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/landloard/create" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/landlord/create" className="text-secondary">
                 Register  Landlord
                 </Nav.Link>
-                <Nav.Link as={Link} to="/landloard/view" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/landlord/view" className="text-secondary">
                 Veiw  Landlords
                 </Nav.Link>
               </div>
@@ -144,10 +144,10 @@ const SlideBar = () => {
             </Nav.Link>
             <Collapse in={openMenu.properties}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/property/create" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/property/create" className="text-secondary">
                 Create Property
                 </Nav.Link>
-                <Nav.Link as={Link} to="/property/view" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/property/view" className="text-secondary">
                 View Property
                 </Nav.Link>
               </div>
@@ -169,10 +169,10 @@ const SlideBar = () => {
             </Nav.Link>
             <Collapse in={openMenu.unit}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/property-unit/create" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/property-unit/create" className="text-secondary">
                   Create Property Unit
                 </Nav.Link>
-                <Nav.Link as={Link} to="/property-unit/view" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/property-unit/view" className="text-secondary">
                   View Property Units
                 </Nav.Link>
               </div>
@@ -195,13 +195,13 @@ const SlideBar = () => {
             </Nav.Link>
             <Collapse in={openMenu.leases}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/lease/create" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/lease/create" className="text-secondary">
                   Create Lease
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lease/show" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/lease/show" className="text-secondary">
                   Show Leases
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lease/terminate" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/lease/terminate" className="text-secondary">
                   Terminated Leases
                 </Nav.Link>
               </div>
@@ -225,10 +225,10 @@ const SlideBar = () => {
             </Nav.Link>
             <Collapse in={openMenu.inventory}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/lead1" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/lead1" className="text-secondary">
                   Lead 1
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lead2" className="text-secondary">
+                <Nav.Link as={Link} to="/admin/lead2" className="text-secondary">
                   Lead 2
                 </Nav.Link>
               </div>
@@ -244,7 +244,7 @@ const SlideBar = () => {
              {/* Invoices Section */}
          <Nav.Link
               as={Link}
-              to="invoices"
+              to="/admin/invoices"
               className="d-flex justify-content-between align-items-center text-secondary mb-2"
               onClick={() => toggleDropdown('invoice')}
             >
@@ -305,7 +305,7 @@ const SlideBar = () => {
           {/* Support Tickets Section */}
          <Nav.Link
               as={Link}
-              to="support"
+              to="/admin/support"
               className="d-flex justify-content-between align-items-center text-secondary mb-2"
               onClick={() => toggleDropdown('support')}
             >

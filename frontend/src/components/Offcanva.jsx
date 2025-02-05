@@ -55,7 +55,7 @@ const Offcanva = () => {
             {/* Dashboard Section */}
             <Nav.Link
               as={Link}
-              to="dashboard"
+              to="/admin/dashboard"
               className="d-flex justify-content-between align-items-center text-white mb-3 py-2 px-3 rounded-3 transition-all hover-bg-dark"
               onClick={() => {
                 toggleSidebar();
@@ -84,7 +84,7 @@ const Offcanva = () => {
               <div className="ms-4">
                 <Nav.Link
                   as={Link}
-                  to="/tenant/create"
+                  to="/admin/tenant/create"
                   className="text-primary"
                   onClick={toggleSidebar}
                 >
@@ -92,7 +92,7 @@ const Offcanva = () => {
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
-                  to="/tenant/view"
+                  to="/admin/tenant/view"
                   className="text-primary"
                   onClick={toggleSidebar}
                 >
@@ -118,7 +118,7 @@ const Offcanva = () => {
               <div className="ms-4">
                 <Nav.Link
                   as={Link}
-                  to="/landloard/create"
+                  to="/admin/landlord/create"
                   className="text-primary"
                   onClick={toggleSidebar}
                 >
@@ -126,7 +126,7 @@ const Offcanva = () => {
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
-                  to="/landloard/view"
+                  to="/admin/landlord/view"
                   className="text-primary"
                   onClick={toggleSidebar}
                 >
@@ -152,7 +152,7 @@ const Offcanva = () => {
               <div className="ms-4">
                 <Nav.Link
                   as={Link}
-                  to="/property/create"
+                  to="/admin/property/create"
                   className="text-primary"
                   onClick={toggleSidebar}
                 >
@@ -160,7 +160,7 @@ const Offcanva = () => {
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
-                  to="/property/view"
+                  to="/admin/property/view"
                   className="text-primary"
                   onClick={toggleSidebar}
                 >
@@ -184,10 +184,10 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.unit}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/property-unit/create" className="text-primary"  onClick={toggleSidebar} >
+                <Nav.Link as={Link} to="/admin/property-unit/create" className="text-primary"  onClick={toggleSidebar} >
                   Create Property Unit
                 </Nav.Link>
-                <Nav.Link as={Link} to="/property-unit/view" className="text-primary"  onClick={toggleSidebar}>
+                <Nav.Link as={Link} to="/admin/property-unit/view" className="text-primary"  onClick={toggleSidebar}>
                  View Property Units
                 </Nav.Link>
               </div>
@@ -210,13 +210,13 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.leases}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/lease/create" className="text-primary"  onClick={toggleSidebar} >
+                <Nav.Link as={Link} to="/admin/lease/create" className="text-primary"  onClick={toggleSidebar} >
                 Create Lease
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lease/show" className="text-primary"  onClick={toggleSidebar}>
+                <Nav.Link as={Link} to="/admin/lease/show" className="text-primary"  onClick={toggleSidebar}>
                   Show Leases
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lease/terminate" className="text-primary"  onClick={toggleSidebar}>
+                <Nav.Link as={Link} to="/admin/lease/terminate" className="text-primary"  onClick={toggleSidebar}>
                   Terminated Leases
                 </Nav.Link>
               </div>
@@ -240,10 +240,10 @@ const Offcanva = () => {
             </Nav.Link>
             <Collapse in={openMenu.inventory}>
               <div className="ms-4">
-                <Nav.Link as={Link} to="/lead1" className="text-primary"  onClick={toggleSidebar} >
+                <Nav.Link as={Link} to="/admin/lead1" className="text-primary"  onClick={toggleSidebar} >
                   Lead 1
                 </Nav.Link>
-                <Nav.Link as={Link} to="/lead2" className="text-primary"  onClick={toggleSidebar} >
+                <Nav.Link as={Link} to="/admin/lead2" className="text-primary"  onClick={toggleSidebar} >
                   Lead 2
                 </Nav.Link>
               </div>
@@ -259,7 +259,7 @@ const Offcanva = () => {
              {/* Invoices Section */}
          <Nav.Link
               as={Link}
-              to="invoices"
+              to="/admin/invoices"
               className="d-flex justify-content-between align-items-center text-secondary mb-2"
               onClick={() => {
                 toggleSidebar();
