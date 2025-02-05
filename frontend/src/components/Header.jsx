@@ -1,9 +1,32 @@
+
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { FaUser, FaHome } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
+
+
 
 const Header = () => {
+
+  const navigate = useNavigate();
+
+
+  const logoutHandler = async () => {
+    try {
+      await axios.post('/api/users/logout', {}, { withCredentials: true });
+  
+      toast.success('Logout successful!');
+      setTimeout(() => navigate('/login'), 500); // Redirect after 0.5s
+  
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Logout failed');
+    }
+  };
+
+  
   return (
     <header  style={{
         position: 'sticky',
@@ -29,8 +52,8 @@ const Header = () => {
               </Nav.Link>
 
               <NavDropdown title="Admin" id="adminmenu">
-                <NavDropdown.Item as={Link} to="/admin">
-                  Admin
+                <NavDropdown.Item onClick={logoutHandler}>
+                  LogOut
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
