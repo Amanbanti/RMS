@@ -1,13 +1,13 @@
 import React from "react";
 import { Container, Col } from 'react-bootstrap';
-import AdminSlideBar from "../components/AdminSlideBar";
+import SlideBar from "../AdminOffcanva../components/SlideBar";
 import { Outlet } from 'react-router-dom';
 
 
 const HomeScreen = () => {
   return (
     <>
-      <AdminSlideBar />
+      <SlideBar />
       {/* Main Content */}
       <Container>
         <Col

@@ -17,7 +17,7 @@ import reportWebVitals from './reportWebVitals';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen';
-import Dashboard from "./screens/HomeScreens/Dashboard";
+import AdminDashboard from "./screens/HomeScreens/Dashboard";
 import CreateTenant from "./screens/TenantScreens/CreateTenant"
 import ViewTenant from "./screens/TenantScreens/ViewTenants"
 import RegisterlandLord from './screens/LandLordScreens/LandLordRegistrationForm';
@@ -30,6 +30,8 @@ import CreateLease from './screens/Leases/CreateLease'
 import ViewLease from './screens/Leases/ShowLeases'
 import TerminatedLeases from './screens/Leases/TerminatedLeases'
 import AdminRoute from './components/AdminRoutes';
+import UserRoute from './components/UserRoutes'
+import UserDashboard from './screens/Users/Dashboard'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -43,7 +45,7 @@ const router = createBrowserRouter(
       
       <Route path="admin" element={<HomeScreen />}>
         <Route path="" element={<AdminRoute/>}>
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="tenant/create" element={<CreateTenant />} />
           <Route path="tenant/view" element={<ViewTenant />} />
           <Route path="landlord/create" element={<RegisterlandLord />} />
@@ -57,6 +59,13 @@ const router = createBrowserRouter(
           <Route path="lease/terminate" element={<TerminatedLeases />} />
         </Route>
       </Route>
+
+     {/* User Routes */}
+      <Route path="" element={<UserRoute/>}>
+          <Route path="/dashboard" element={<UserDashboard />} />
+      </Route>
+
+
     </Route>
   )
 );
