@@ -5,8 +5,9 @@ import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { FaUser, FaHome } from 'react-icons/fa';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-
-
+import Dropdown from 'react-bootstrap/Dropdown';
+import '../assets/styles/index.css'
+import { FaSignOutAlt } from 'react-icons/fa';
 
 
 const Header = () => {
@@ -57,15 +58,30 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
 
-              <Nav.Link as={Link} to="/login">
-                <FaUser /> Sign In
-              </Nav.Link>
 
-              <NavDropdown title="Admin" id="adminmenu">
-                <NavDropdown.Item onClick={logoutHandler}>
-                  LogOut
-                </NavDropdown.Item>
-              </NavDropdown>
+
+              {userInfo ? (
+
+                  <Dropdown>
+                  <Dropdown.Toggle variant="success" id="menu">
+                    {userInfo?.name}
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu className="custom-dropdown-menu">
+                    <Dropdown.Item as={Link} to="/profile" className="custom-dropdown-item">
+                      <FaUser /> My account
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={logoutHandler} className="custom-dropdown-item">
+                     <FaSignOutAlt/> Log Out
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                  </Dropdown>
+              ) : (
+                <Nav.Link as={Link} to="/login">
+                  <FaUser /> Sign In
+                </Nav.Link>
+              )}
+             
             </Nav>
           </Navbar.Collapse>
         </Container>

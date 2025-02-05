@@ -61,3 +61,15 @@ code {
 
 
 
+.custom-dropdown-menu {
+  background-color: rgb(123,138,139,0.8) !important; /* Transparent black */
+
+}
+
+.custom-dropdown-item {
+  color: white !important; /* White text */
+}
+
+.custom-dropdown-item:hover {
+  background-color: rgba(50, 50, 50, 0.6) !important; /* Darker on hover */
+}
