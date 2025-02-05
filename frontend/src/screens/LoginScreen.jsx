@@ -26,27 +26,36 @@ const LoginScreen = () => {
   };
 
 
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       setLoading(true);
-      const { data } = await axios.post('/api/users/login', {
-        email,
-        password
-      });
-
+  
+      const { data } = await axios.post('/api/users/login', { email, password }, { withCredentials: true });
+  
+      // Store user info in localStorage (optional, depends on your state management)
+      localStorage.setItem('userInfo', JSON.stringify(data));
+  
       toast.success('Login successful!');
-      setTimeout(() => navigate('/admin/dashboard'), 500); // Redirect after 0.5s
-
+  
+      // Redirect based on user role
+      setTimeout(() => {
+        if (data.isAdmin) {
+          navigate('/admin/dashboard');
+        } else {
+          navigate('/dashboard'); // Redirect normal users to their dashboard
+        }
+      }, 500);
+  
     } catch (err) {
-      toast.error(err.response?.data?.message || 'Login failed',);
+      toast.error(err.response?.data?.message || 'Login failed');
     } finally {
       setLoading(false);
     }
   };
-
+  
   return (
     <FormContainer>
       <h1>Sign In</h1>
