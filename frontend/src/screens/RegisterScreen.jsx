@@ -5,8 +5,8 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FormContainer from '../components/FormContainer';
-import { FaGoogle, FaFacebook } from 'react-icons/fa';
 import Loader from '../components/Loader';
+
 
 const RegisterScreen = () => {
   const [name, setName] = useState('');
@@ -95,25 +95,6 @@ const RegisterScreen = () => {
           {loading ? 'Registering...' : 'Register'}
         </Button>
       </Form>
-
-      <div className="divider d-flex align-items-center my-4">
-        <p className="text-center fw-bold mx-3 mb-0">OR</p>
-      </div>
-
-      <Button
-        variant="outline-primary"
-        className="w-100 my-2 d-flex align-items-center justify-content-center"
-      >
-        <FaGoogle className="me-2" /> Register with Google
-      </Button>
-
-      <Button
-        variant="outline-primary"
-        className="w-100 my-2 d-flex align-items-center justify-content-center"
-        style={{ backgroundColor: '#3b5998', color: 'white' }}
-      >
-        <FaFacebook className="me-2" /> Register with Facebook
-      </Button>
 
       <Row className="py-3">
         <Col>
