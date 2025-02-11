@@ -3,7 +3,7 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import { connectDb, sequelize } from './config/db.js';
 import userRoute from './routes/userRoutes.js'; 
-
+import tenantRoutes from './routes/tenantRoutes.js'
 
 dotenv.config();
 
@@ -34,7 +34,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));// It ensures that the request accessed in a structured format.
 app.use(cookieParser());
 
+//Routes
 app.use('/api/users', userRoute);
+app.use("/api/tenants", tenantRoutes);
+
 
 //to change error to json format
 app.use((err, req, res, next) => {
