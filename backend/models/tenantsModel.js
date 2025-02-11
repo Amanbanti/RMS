@@ -56,4 +56,5 @@ const Tenant = sequelize.define("Tenant", {
   timestamps: true,
 });
 
-module.exports = Tenant;
+
+export default Tenant;
