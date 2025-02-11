@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap";
 import { FaBriefcase } from "react-icons/fa";
+import axios from "axios";
+import { toast } from 'react-toastify';
+
 const TenantRegistrationForm = () => {
+   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -23,11 +27,52 @@ const TenantRegistrationForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+  
+    const formDataToSend = new FormData();
+    Object.keys(formData).forEach((key) => {
+      formDataToSend.append(key, formData[key]);
+    });
+  
+    try {
+      setLoading(true);
+      const response = await axios.post("/api/tenants/register",
+        formDataToSend,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+  
+      toast.success('Tenant registered successfully!');
+      console.log(response.data);
+      setFormData({
+        fullName: "",
+        email: "",
+        phoneNumber: "",
+        identityNo: "",
+        identificationDocument: null,
+        address: "",
+        occupationStatus: "",
+        occupationPlace: "",
+        emergencyContactName: "",
+        emergencyContactPhone: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.success(
+        "Error registering tenant: " +
+        (error.response?.data?.error || "Something went wrong")
+      );
+    }finally {
+      setLoading(false);
+    }
   };
+  
 
   return (
     <Container className="py-4">
@@ -208,7 +253,7 @@ const TenantRegistrationForm = () => {
 
                 {/* Submit Button */}
                 <div className="text-center mt-4">
-                  <Button variant="primary" type="submit" className="w-50">
+                  <Button variant="primary" type="submit" className="w-50" disabled={loading}>
                     Register Tenant
                   </Button>
                 </div>

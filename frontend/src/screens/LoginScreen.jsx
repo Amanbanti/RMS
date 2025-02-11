@@ -14,15 +14,6 @@ const LoginScreen = () => {
   const navigate = useNavigate();
 
 
-  const handleGoogleSignIn = () => {
-    console.log('Google Sign-In clicked');
-    // Add Google authentication logic here
-  };
-
-  const handleFacebookSignIn = () => {
-    console.log('Facebook Sign-In clicked');
-    // Add Facebook authentication logic here
-  };
 
 
   
