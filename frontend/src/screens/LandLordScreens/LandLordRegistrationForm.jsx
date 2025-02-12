@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap";
+import axios from "axios";
+import { toast } from 'react-toastify';
+
 const LandLordRegistrationForm = () => {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -20,11 +24,49 @@ const LandLordRegistrationForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+  
+    const formDataToSend = new FormData();
+    Object.keys(formData).forEach((key) => {
+      formDataToSend.append(key, formData[key]);
+    });
+  
+    try {
+      setLoading(true);
+      const response = await axios.post("/api/landlords/register",
+        formDataToSend,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+  
+      toast.success('LandLord registered successfully!');
+      console.log(response.data);
+      setFormData({
+        fullName: "",
+        email: "",
+        phoneNumber: "",
+        identityNo: "",
+        identificationDocument: null,
+        address: "",
+        bankAccountNo: "",
+        bankAssociated: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error(
+        "Error registering landlord: " +
+        (error.response?.data?.error || "Something went wrong")
+      );
+    }finally {
+      setLoading(false);
+    }
   };
+  
+
 
   return (
     <Container className="py-4">
@@ -157,7 +199,7 @@ const LandLordRegistrationForm = () => {
 
                 {/* Submit Button */}
                 <div className="text-center mt-4">
-                  <Button variant="primary" type="submit" className="w-50">
+                  <Button variant="primary" type="submit" className="w-50" disabled={loading}>
                     Register LandLord
                   </Button>
                 </div>
