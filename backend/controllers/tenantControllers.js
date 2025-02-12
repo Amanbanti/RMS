@@ -36,4 +36,11 @@ export const registerTenant = asyncHandler(async (req, res) => {
 
 
 
+
+
+// Get All tenants
+export const viewTenants = asyncHandler(async (req, res) => {
+    const tenants = await Tenant.findAll();
+    res.status(201).json(tenants);
+  })
   

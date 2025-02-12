@@ -1,6 +1,9 @@
 
 import express from "express";
-import { registerTenant } from "../controllers/tenantControllers.js";
+import { 
+    registerTenant,
+    viewTenants
+ } from "../controllers/tenantControllers.js";
 import multer from "multer";
 import fs from "fs";
 
@@ -24,5 +27,5 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.post("/register", upload.single("identificationDocument"), registerTenant);
-
+router.get("/viewTenants", viewTenants);
 export default router;

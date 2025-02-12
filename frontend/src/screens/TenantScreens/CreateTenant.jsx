@@ -64,7 +64,7 @@ const TenantRegistrationForm = () => {
       });
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.success(
+      toast.error(
         "Error registering tenant: " +
         (error.response?.data?.error || "Something went wrong")
       );
