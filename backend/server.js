@@ -5,7 +5,7 @@ import multer from "multer";
 import { connectDb, sequelize } from "./config/db.js";
 import userRoute from "./routes/userRoutes.js";
 import tenantRoutes from "./routes/tenantRoutes.js";
-
+import landlordRoutes from "./routes/landlordRoutes.js"
 dotenv.config();
 
 const app = express();
@@ -41,6 +41,7 @@ const upload = multer({ storage });
 // Routes
 app.use("/api/users", userRoute);
 app.use("/api/tenants", tenantRoutes);
+app.use("/api/landlords", landlordRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
